@@ -11,7 +11,7 @@ app.use(require('./routes/api/index'));
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect("mongodb+srv://test:test@socialnetwork.r48g0cw.mongodb.net/test", {
+    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/socialnetworkDB', {
       useUnifiedTopology: true,
       useNewUrlParser: true,
     
@@ -26,7 +26,7 @@ const connectDB = async () => {
 connectDB()
 
 
-// mongoose.connect("mongodb://localhost:27017/socialnetworkDB", {
+// const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/socialnetworkDB', {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true
 // });
