@@ -25,24 +25,7 @@ const connectDB = async () => {
 }
 connectDB()
 
-
-// const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/socialnetworkDB', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// });
-// const db = mongoose.connection;
-
-// db.on("error", console.error.bind(console, "connection error:"));
-// db.once("open", function() {
-//  console.log("Connected to MongoDB");
-// });
-
-// mongoose.connect( 'mongodb://localhost:27017/socialnetworkDB', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// }).then(()=>console.log("mongoDb Connected"))
-
-// log mongo queries 
+ 
 mongoose.set('debug', true);
 
 app.listen(PORT, () => console.log(` Connected on localhost:${PORT}`));
