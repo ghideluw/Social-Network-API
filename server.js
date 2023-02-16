@@ -11,7 +11,7 @@ app.use(require('./routes/api/index'));
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/socialnetworkDB', {
+    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/socialnetworkDB1', {
       useUnifiedTopology: true,
       useNewUrlParser: true,
     
