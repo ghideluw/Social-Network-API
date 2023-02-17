@@ -17,7 +17,7 @@ const addDateSuffix = date => {
   return dateString;
 };
 
-//  create a function that will format a timestamp, accepts the timestamp as parameter
+//  creating the function that will format a timestamp, include the timestamp as parameter
 module.exports = (
   timestamp,
   { monthLength = 'short', dateSuffix = true } = {}
@@ -76,14 +76,14 @@ module.exports = (
   } else {
     hour = dateObj.getHours();
   }
-  // if hour is 0 (12:00am), change it to 12
+  // if hour is 0, change it to 12
   if (hour === 0) {
     hour = 12;
   }
 
   const minutes = dateObj.getMinutes();
 
-  // set `am` or `pm`
+  // set the time to either `am` or `pm`
   let timeOfDay;
 
   if (dateObj.getHours() >= 12) {

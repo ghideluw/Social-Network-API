@@ -1,19 +1,17 @@
 const { User, Thought } = require('../model')
 
 const userController = {
+  //use getAllUser method to retrieve all users
     getAllUsers(req, res) {
         User.find({})
-            // .populate({
-            //     path: 'thoughts',
-            //     select: ('-__v')
-            // })
-            // .select('-__v')
+            
             .then(dbUserData => res.json(dbUserData))
             .catch(err => {
                 console.log(err);
                 res.status(400).json(err)
             })
     },
+    //use getUserById method to retrieve a user by ID
     getUserById({ params }, res) {
         User.findOne({ _id: params.id })
           .populate({
@@ -33,6 +31,8 @@ const userController = {
             res.status(400).json(err);
           });
       },
+
+      //use createUser method to create a new user
     createUser({ body }, res) {
         
         User.create(body)
@@ -42,6 +42,7 @@ const userController = {
                 res.status(400).json(err)
             })
     },
+    //use updateUser method to retrieve user by ID and update the user
     updateUser({ params, body }, res) {
         User.findOneAndUpdate({ _id: params.id }, body, {
           new: true,
@@ -56,6 +57,8 @@ const userController = {
           })
           .catch((err) => res.status(400).json(err));
       },
+
+      //use deleteUser method to destroy a user history by ID
       deleteUser({ params }, res) {
         User.findOneAndDelete({ _id: params.id })
           .then((dbUserData) => {
@@ -78,6 +81,7 @@ const userController = {
           })
           .catch((err) => res.status(400).json(err));
       },
+      //add a friend with the findByIdandUpdate method
     addFriend({ params }, res) {
         User.findByIdAndUpdate(
           { _id: params.id },
@@ -96,6 +100,7 @@ const userController = {
             res.status(400).json(err);
           });
       },
+      //remove friend with the findByIdAndUpdate method
       removeFriend({ params }, res) {
         User.findByIdAndUpdate(
           { _id: params.id },
@@ -113,5 +118,6 @@ const userController = {
           .catch((err) => res.status(400).json(err));
       },
 }
+//export this file for use outside this file
 
 module.exports = userController
