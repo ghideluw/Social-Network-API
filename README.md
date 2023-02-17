@@ -23,7 +23,9 @@ Download/clone the repository. Run "npm install" in the terminal to download the
 To use the application, you have to create a .env file and set up your local environment variables with your MongoDB information. Once complete, run "npm run start" 
 in the terminal to start the application. Connect to the server port in insomnia, and test the routes.
 
-##SCREENSHOT
+##SCREENSHOT ![image](https://user-images.githubusercontent.com/111549689/219549028-f38c93ed-48df-4c7e-a7c1-0cf05e9f0d57.png)
+
+
 
 
 ## Technologies Used:
